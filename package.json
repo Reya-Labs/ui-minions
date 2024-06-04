@@ -1,7 +1,7 @@
 {
-  "name": "@reyaxyz/react-web3-wallet",
-  "version": "2.23.2",
-  "description": "Library that takes care of connecting to different web3 wallets.",
+  "name": "@reyaxyz/ui-minions",
+  "version": "0.0.1",
+  "description": "Library that takes care of providing utility methods across Reya projects.",
   "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/types",
@@ -34,12 +34,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Reya-Labs/react-web3-wallet.git"
+    "url": "git+https://github.com/Reya-Labs/ui-minions.git"
   },
   "author": "antoni0dev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Reya-Labs/react-web3-wallet/issues"
+    "url": "https://github.com/Reya-Labs/ui-minions/issues"
   },
   "homepage": "https://github.com/Reya-Labs/ui-minions#readme",
   "devDependencies": {
@@ -91,6 +91,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "3.11.0",
+    "rollup-plugin-alias": "^2.2.0",
     "rollup-plugin-bundle-size": "1.0.3",
     "rollup-plugin-dts": "5.1.1",
     "rollup-plugin-peer-deps-external": "2.2.4",

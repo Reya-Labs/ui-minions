@@ -24,6 +24,9 @@ export default [
       typescript({ tsconfig: './tsconfig.build.json' }),
       terser(),
       bundleSize(),
+      alias({
+        entries: [{ find: '~', replacement: path.resolve(__dirname, 'src') }],
+      }),
     ],
   },
   {

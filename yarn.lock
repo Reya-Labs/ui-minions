@@ -3729,9 +3729,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reyaxyz/react-web3-wallet@workspace:.":
+"@reyaxyz/ui-minions@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@reyaxyz/react-web3-wallet@workspace:."
+  resolution: "@reyaxyz/ui-minions@workspace:."
   dependencies:
     "@babel/core": "npm:7.20.12"
     "@babel/preset-env": "npm:7.23.3"
@@ -3781,6 +3781,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rollup: "npm:3.11.0"
+    rollup-plugin-alias: "npm:^2.2.0"
     rollup-plugin-bundle-size: "npm:1.0.3"
     rollup-plugin-dts: "npm:5.1.1"
     rollup-plugin-peer-deps-external: "npm:2.2.4"
@@ -18388,6 +18389,15 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 10c0/9cb7757acb489bd83757ba1a274ab545eafd75598a9d817e0c3f8b164238dd90eba50d6b848bd4dcc5f3040912e882dc7ba71653e35af660d77b25c381d402e8
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-alias@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "rollup-plugin-alias@npm:2.2.0"
+  dependencies:
+    slash: "npm:^3.0.0"
+  checksum: 10c0/1e4c59b30371756eac2013e69af889282cac96cd18f2716895203ea3d7f9b5bca85d9603b24a47324b97eeefe4effa015d52df7e20677ed3705a8a643aa4ccee
   languageName: node
   linkType: hard
 
