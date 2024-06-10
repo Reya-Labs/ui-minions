@@ -13,7 +13,7 @@
 <p align="center">
   <img src="https://badgen.net/github/tag/Reya-Labs/ui-minions" alt="Tag" />
   <img src="https://badgen.net/github/checks/Reya-Labs/ui-minions/main" alt="Checks" />
-  <img src="https://badgen.net/github/last-commit/Reya-Labs/ui-minions/main" alt="Checks" />
+  <img src="https://badgen.net/github/last-commit/Reya-Labs/ui-minions/main" alt="Last Commit" />
 </p>
 
 <p align="center">
@@ -24,6 +24,4 @@ A package providing useful various utilities for Reya Labs projects including fo
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-40.31%25-red.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-40.81%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-38.88%25-red.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-39.16%25-red.svg?style=flat) |
-
-
+| ![Statements](https://badgen.net/badge/statements/40.31%25/red?style=flat) | ![Branches](https://badgen.net/badge/branches/40.81%25/red?style=flat) | ![Functions](https://badgen.net/badge/functions/38.88%25/red?style=flat) | ![Lines](https://badgen.net/badge/lines/39.16%25/red?style=flat) |
