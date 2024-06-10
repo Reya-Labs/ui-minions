@@ -3,6 +3,9 @@
  * https://jestjs.io/docs/configuration
  */
 module.exports = {
+  moduleNameMapper: {
+    '^~/(.*)$': '<rootDir>/src/$1',
+  },
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',

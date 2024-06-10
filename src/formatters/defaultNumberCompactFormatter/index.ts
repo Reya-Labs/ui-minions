@@ -1,6 +1,13 @@
-import { CompactFormatParts, compactFormatToParts, isEmpty } from '~/.';
 import { DEFAULT_FORMATTING_LOCALE } from '~/constants';
+import { isEmpty } from '~/is-empty';
+import { CompactFormatParts, compactFormatToParts } from '~/number';
 
+/**
+ * Splits a string into an array of digits and NaNs for non-digit characters.
+ *
+ * @param {string} value - The string to be processed.
+ * @returns {Array<number>} An array where digits are converted to numbers and spaces to NaNs.
+ */
 const extractDigitsAndTokens = (value: string) =>
   value.split('').map((char) => (/[\s\u00A0\u202F]/.test(char) ? NaN : Number(char)));
 
@@ -10,6 +17,13 @@ type Options = {
   showPlusSign?: boolean;
 };
 
+/**
+ * Formats a number into a compact form with appropriate suffixes based on locale.
+ *
+ * @param {number} value - The number to be formatted.
+ * @param {string} locale - The locale for formatting.
+ * @returns {CompactFormatParts} The formatted number with suffix and value.
+ */
 function _defaultNumberCompactFormatter(value: number, locale: string) {
   if (value > 99999) {
     const formatted = compactFormatToParts(value, 0, 5, locale);
@@ -60,6 +74,16 @@ function _defaultNumberCompactFormatter(value: number, locale: string) {
   };
 }
 
+/**
+ * Formats a number into a compact form with appropriate suffixes based on options.
+ *
+ * @param {number | null | undefined} value - The number to be formatted.
+ * @param {Options} [options={}] - The options for formatting.
+ * @param {string} [options.defaultValue] - The default value if the input is empty.
+ * @param {string} [options.locale] - The locale for formatting. Defaults to `DEFAULT_FORMATTING_LOCALE`.
+ * @param {boolean} [options.showPlusSign] - Whether to show a plus sign for positive numbers.
+ * @returns {CompactFormatParts} The formatted number with suffix and value.
+ */
 export function defaultNumberCompactFormatter(
   value: number | null | undefined,
   options: Options = {},

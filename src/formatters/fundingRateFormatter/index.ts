@@ -1,5 +1,5 @@
-import { isEmpty } from '~/.';
 import { DEFAULT_FORMATTING_LOCALE, SMALL_GAS_FEE_LIMIT } from '~/constants';
+import { isEmpty } from '~/is-empty';
 
 type Options = {
   defaultValue?: string;
@@ -7,6 +7,16 @@ type Options = {
   showPlusSign?: boolean;
 };
 
+/**
+ * Formats a funding rate number into a string based on the provided options.
+ *
+ * @param {number} value - The funding rate to be formatted.
+ * @param {Options} [options={}] - The options for formatting.
+ * @param {string} [options.defaultValue] - The default value if the input is empty. Defaults to '---'.
+ * @param {string} [options.locale] - The locale for formatting. Defaults to `DEFAULT_FORMATTING_LOCALE`.
+ * @param {boolean} [options.showPlusSign] - Whether to show a plus sign for positive numbers. Defaults to false.
+ * @returns {string} The formatted funding rate string.
+ */
 export function fundingRateFormatter(value: number, options: Options = {}): string {
   const {
     showPlusSign = false,

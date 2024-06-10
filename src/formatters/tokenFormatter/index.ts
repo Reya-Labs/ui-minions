@@ -1,3 +1,9 @@
+/**
+ * Formats a token string into a standardized format.
+ *
+ * @param {string | undefined} token - The token string to be formatted.
+ * @returns {string} The formatted token string.
+ */
 export const tokenFormatter = (token: string | undefined) => {
   if (!token) {
     return '';

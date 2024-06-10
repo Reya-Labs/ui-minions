@@ -1,3 +1,9 @@
+/**
+ * Checks if a value is empty. A value is considered empty if it is undefined, null, an empty string, an empty array, or an object with no keys.
+ *
+ * @param {TValue | null | boolean | number | string | unknown[] | Record<string, unknown>} [value] - The value to check for emptiness.
+ * @returns {boolean} True if the value is empty, false otherwise.
+ */
 export function isEmpty<TValue>(
   value?: TValue | null | boolean | number | string | unknown[] | Record<string, unknown>,
 ): value is TValue {

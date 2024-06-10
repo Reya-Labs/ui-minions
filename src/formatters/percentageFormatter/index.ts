@@ -1,11 +1,20 @@
-import { isEmpty } from '~/.';
 import { DEFAULT_FORMATTING_LOCALE, SMALL_GAS_FEE_LIMIT } from '~/constants';
+import { isEmpty } from '~/is-empty';
 
 type Options = {
   defaultValue?: string;
   locale?: string;
 };
 
+/**
+ * Formats a percentage value into a string based on the provided options.
+ *
+ * @param {number} value - The percentage value to be formatted.
+ * @param {Options} [options={}] - The options for formatting.
+ * @param {string} [options.defaultValue] - The default value if the input is empty. Defaults to '---'.
+ * @param {string} [options.locale] - The locale for formatting. Defaults to `DEFAULT_FORMATTING_LOCALE`.
+ * @returns {string} The formatted percentage string.
+ */
 export function percentageFormatter(value: number, options: Options = {}): string {
   const { defaultValue = '---', locale = DEFAULT_FORMATTING_LOCALE } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
