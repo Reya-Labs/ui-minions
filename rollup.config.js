@@ -2,9 +2,11 @@ import commonjs from '@rollup/plugin-commonjs'; // Consider if you still need th
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import bundleSize from 'rollup-plugin-bundle-size';
+import alias from '@rollup/plugin-alias';
 import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
+import path from 'path';
 
 const packageJson = require('./package.json');
 
