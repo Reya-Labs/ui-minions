@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type Options = {
+export type XpFormatterOptions = {
   defaultValue?: string;
   locale: string;
 };
@@ -14,7 +14,7 @@ type Options = {
  * @param {string} [options.locale] - The locale for formatting.
  * @returns {string} The formatted XP value string.
  */
-export const xpFormatter = (value: number, options: Options) => {
+export const xpFormatter = (value: number, options: XpFormatterOptions) => {
   const { defaultValue = '---', locale } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;

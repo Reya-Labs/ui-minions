@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type Options = {
+export type PercentageFormatterOptions = {
   defaultValue?: string;
   locale: string;
   smallGasFeeLimit: number;
@@ -15,7 +15,7 @@ type Options = {
  * @param {string} [options.locale] - The locale for formatting. .
  * @returns {string} The formatted percentage string.
  */
-export function percentageFormatter(value: number, options: Options): string {
+export function percentageFormatter(value: number, options: PercentageFormatterOptions): string {
   const { defaultValue = '---', locale, smallGasFeeLimit } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;

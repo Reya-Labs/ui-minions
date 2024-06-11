@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type Options = {
+export type FundingRateFormatterOptions = {
   defaultValue?: string;
   locale: string;
   showPlusSign?: boolean;
@@ -17,7 +17,7 @@ type Options = {
  * @param {boolean} [options.showPlusSign] - Whether to show a plus sign for positive numbers. Defaults to false.
  * @returns {string} The formatted funding rate string.
  */
-export function fundingRateFormatter(value: number, options: Options): string {
+export function fundingRateFormatter(value: number, options: FundingRateFormatterOptions): string {
   const { showPlusSign = false, defaultValue = '---', locale, smallGasFeeLimit } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;
