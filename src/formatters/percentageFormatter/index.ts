@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type PercentageFormatterOptions = {
+export type PercentageFormatterOptions = {
   defaultValue?: string;
   locale: string;
   smallGasFeeLimit: number;

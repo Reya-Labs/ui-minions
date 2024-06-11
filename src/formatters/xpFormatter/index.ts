@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type XpFormatterOptions = {
+export type XpFormatterOptions = {
   defaultValue?: string;
   locale: string;
 };
