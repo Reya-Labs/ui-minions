@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type Options = {
+type UnreadNotificationsFormatterOptions = {
   defaultValue?: string;
   locale: string;
 };
@@ -14,7 +14,10 @@ type Options = {
  * @param {string} [options.locale] - The locale for formatting.
  * @returns {string} The formatted unread notifications string.
  */
-export function unreadNotificationsFormatter(value: number, options: Options): string {
+export function unreadNotificationsFormatter(
+  value: number,
+  options: UnreadNotificationsFormatterOptions,
+): string {
   const { defaultValue = '---', locale } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;
