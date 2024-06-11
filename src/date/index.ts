@@ -6,3 +6,4 @@ export * from './formatTimeAgo';
 export * from './formatTimestampAsUTCHHMM';
 export * from './formatToUTCShortDateTime';
 export * from './getCurrentUTCDate';
+export * from './formatTimestampToLocaleDateTimeGmt';
