@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type FundingRateFormatterOptions = {
+export type FundingRateFormatterOptions = {
   defaultValue?: string;
   locale: string;
   showPlusSign?: boolean;

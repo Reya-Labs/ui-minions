@@ -12,7 +12,7 @@ function roundDown(value: number, precision: number) {
   return Math.trunc(value * roundDownBy) / roundDownBy;
 }
 
-type PriceFormatterOptions = {
+export type PriceFormatterOptions = {
   defaultValue?: string;
   locale: string;
   precision: number;

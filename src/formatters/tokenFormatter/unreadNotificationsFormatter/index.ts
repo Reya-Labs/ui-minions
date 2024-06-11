@@ -1,6 +1,6 @@
 import { isEmpty } from '~/is-empty';
 
-type UnreadNotificationsFormatterOptions = {
+export type UnreadNotificationsFormatterOptions = {
   defaultValue?: string;
   locale: string;
 };
