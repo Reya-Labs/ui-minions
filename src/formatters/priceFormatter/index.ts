@@ -12,7 +12,7 @@ function roundDown(value: number, precision: number) {
   return Math.trunc(value * roundDownBy) / roundDownBy;
 }
 
-type Options = {
+type PriceFormatterOptions = {
   defaultValue?: string;
   locale: string;
   precision: number;
@@ -30,7 +30,7 @@ type Options = {
  * @param {Intl.NumberFormatOptions['useGrouping']} [options.useGrouping] - Whether to use grouping separators.
  * @returns {string} The formatted price string.
  */
-export function priceFormatter(value: number, options: Options): string {
+export function priceFormatter(value: number, options: PriceFormatterOptions): string {
   const { defaultValue = '---', locale, useGrouping = undefined, precision } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;

@@ -10,7 +10,7 @@ import { CompactFormatParts, compactFormatToParts } from '~/number';
 const extractDigitsAndTokens = (value: string) =>
   value.split('').map((char) => (/[\s\u00A0\u202F]/.test(char) ? NaN : Number(char)));
 
-type Options = {
+export type DefaultNumberCompactFormatterOptions = {
   defaultValue?: string;
   locale: string;
   showPlusSign?: boolean;
@@ -85,7 +85,7 @@ function _defaultNumberCompactFormatter(value: number, locale: string) {
  */
 export function defaultNumberCompactFormatter(
   value: number | null | undefined,
-  options: Options,
+  options: DefaultNumberCompactFormatterOptions,
 ): CompactFormatParts {
   const {
     showPlusSign = false,
