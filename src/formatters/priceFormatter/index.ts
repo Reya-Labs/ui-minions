@@ -1,4 +1,3 @@
-import { DEFAULT_FORMATTING_LOCALE, INPUT_DECIMAL_LIMITS } from '~/constants';
 import { isEmpty } from '~/is-empty';
 
 /**
@@ -15,8 +14,8 @@ function roundDown(value: number, precision: number) {
 
 type Options = {
   defaultValue?: string;
-  locale?: string;
-  precision?: number;
+  locale: string;
+  precision: number;
   useGrouping?: Intl.NumberFormatOptions['useGrouping'];
 };
 
@@ -26,18 +25,13 @@ type Options = {
  * @param {number} value - The price value to be formatted.
  * @param {Options} [options={}] - The options for formatting.
  * @param {string} [options.defaultValue] - The default value if the input is empty. Defaults to '---'.
- * @param {string} [options.locale] - The locale for formatting. Defaults to `DEFAULT_FORMATTING_LOCALE`.
- * @param {number} [options.precision] - The number of decimal places to format to. Defaults to `INPUT_DECIMAL_LIMITS`.
+ * @param {string} [options.locale] - The locale for formatting.
+ * @param {number} [options.precision] - The number of decimal places to format to.
  * @param {Intl.NumberFormatOptions['useGrouping']} [options.useGrouping] - Whether to use grouping separators.
  * @returns {string} The formatted price string.
  */
-export function priceFormatter(value: number, options: Options = {}): string {
-  const {
-    defaultValue = '---',
-    locale = DEFAULT_FORMATTING_LOCALE,
-    useGrouping = undefined,
-    precision = INPUT_DECIMAL_LIMITS,
-  } = { ...options };
+export function priceFormatter(value: number, options: Options): string {
+  const { defaultValue = '---', locale, useGrouping = undefined, precision } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;
   }

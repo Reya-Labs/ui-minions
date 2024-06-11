@@ -1,10 +1,10 @@
-import { DEFAULT_FORMATTING_LOCALE, SMALL_GAS_FEE_LIMIT } from '~/constants';
 import { isEmpty } from '~/is-empty';
 
 type Options = {
   defaultValue?: string;
-  locale?: string;
+  locale: string;
   showPlusSign?: boolean;
+  smallGasFeeLimit: number;
 };
 
 /**
@@ -13,16 +13,12 @@ type Options = {
  * @param {number} value - The funding rate to be formatted.
  * @param {Options} [options={}] - The options for formatting.
  * @param {string} [options.defaultValue] - The default value if the input is empty. Defaults to '---'.
- * @param {string} [options.locale] - The locale for formatting. Defaults to `DEFAULT_FORMATTING_LOCALE`.
+ * @param {string} [options.locale] - The locale for formatting. .
  * @param {boolean} [options.showPlusSign] - Whether to show a plus sign for positive numbers. Defaults to false.
  * @returns {string} The formatted funding rate string.
  */
-export function fundingRateFormatter(value: number, options: Options = {}): string {
-  const {
-    showPlusSign = false,
-    defaultValue = '---',
-    locale = DEFAULT_FORMATTING_LOCALE,
-  } = { ...options };
+export function fundingRateFormatter(value: number, options: Options): string {
+  const { showPlusSign = false, defaultValue = '---', locale, smallGasFeeLimit } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;
   }
@@ -32,7 +28,7 @@ export function fundingRateFormatter(value: number, options: Options = {}): stri
 
   const isNegative = value < 0;
   const absValue = Math.abs(value);
-  const extraSmallValue = absValue < SMALL_GAS_FEE_LIMIT;
+  const extraSmallValue = absValue < smallGasFeeLimit;
   if (extraSmallValue) {
     const smallLocale = new Intl.NumberFormat(locale, {
       maximumFractionDigits: 4,

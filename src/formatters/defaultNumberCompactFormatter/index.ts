@@ -1,4 +1,3 @@
-import { DEFAULT_FORMATTING_LOCALE } from '~/constants';
 import { isEmpty } from '~/is-empty';
 import { CompactFormatParts, compactFormatToParts } from '~/number';
 
@@ -13,7 +12,7 @@ const extractDigitsAndTokens = (value: string) =>
 
 type Options = {
   defaultValue?: string;
-  locale?: string;
+  locale: string;
   showPlusSign?: boolean;
 };
 
@@ -80,18 +79,18 @@ function _defaultNumberCompactFormatter(value: number, locale: string) {
  * @param {number | null | undefined} value - The number to be formatted.
  * @param {Options} [options={}] - The options for formatting.
  * @param {string} [options.defaultValue] - The default value if the input is empty.
- * @param {string} [options.locale] - The locale for formatting. Defaults to `DEFAULT_FORMATTING_LOCALE`.
+ * @param {string} [options.locale] - The locale for formatting..
  * @param {boolean} [options.showPlusSign] - Whether to show a plus sign for positive numbers.
  * @returns {CompactFormatParts} The formatted number with suffix and value.
  */
 export function defaultNumberCompactFormatter(
   value: number | null | undefined,
-  options: Options = {},
+  options: Options,
 ): CompactFormatParts {
   const {
     showPlusSign = false,
     defaultValue = '',
-    locale = DEFAULT_FORMATTING_LOCALE,
+    locale,
   } = {
     ...options,
   };

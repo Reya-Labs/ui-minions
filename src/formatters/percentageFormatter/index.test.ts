@@ -94,7 +94,10 @@ describe('percentageFormatter', () => {
     'given value=%p, navigator.language=%p - should return expected output',
     (value, mockedNavigatorLanguage, expected) => {
       // Call the formatter function
-      const retValue = percentageFormatter(value as number, { locale: mockedNavigatorLanguage });
+      const retValue = percentageFormatter(value as number, {
+        locale: mockedNavigatorLanguage,
+        smallGasFeeLimit: 0.0001,
+      });
 
       // Assert the result
       expect(retValue).toEqual(expected);

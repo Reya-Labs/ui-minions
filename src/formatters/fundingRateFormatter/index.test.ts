@@ -52,7 +52,7 @@ describe('fundingRateFormatter', () => {
     [-1, 'en-GB', '-1'],
     [-10, 'en-GB', '-10'],
     [-0.00123, 'en-GB', '-0.0012'],
-    // // 'ja' (Japanese)
+    // 'ja' (Japanese)
     [42, 'ja', '42'],
     [41.8, 'ja', '42'],
     [41.4, 'ja', '41'],
@@ -89,7 +89,7 @@ describe('fundingRateFormatter', () => {
     [-1, 'ja', '-1'],
     [-10, 'ja', '-10'],
     [-0.00123, 'ja', '-0.0012'],
-    // // 'ru' (Russian)
+    // 'ru' (Russian)
     [42, 'ru', '42'],
     [41.8, 'ru', '42'],
     [41.4, 'ru', '41'],
@@ -130,7 +130,10 @@ describe('fundingRateFormatter', () => {
     'given value=%p, navigator.language=%p - should return expected output=%p',
     (value, mockedNavigatorLanguage, expected) => {
       // Call the formatter function
-      const retValue = fundingRateFormatter(value as number, { locale: mockedNavigatorLanguage });
+      const retValue = fundingRateFormatter(value as number, {
+        locale: mockedNavigatorLanguage,
+        smallGasFeeLimit: 0.0001,
+      });
 
       // Assert the result
       expect(retValue).toEqual(expected);
