@@ -4,6 +4,6 @@ export * from './formatPOSIXTimestampAsLocalHHMMSS';
 export * from './formatRemainingTime';
 export * from './formatTimeAgo';
 export * from './formatTimestampAsUTCHHMM';
+export * from './formatTimestampToLocaleDateTimeGmt';
 export * from './formatToUTCShortDateTime';
 export * from './getCurrentUTCDate';
-export * from './formatTimestampToLocaleDateTimeGmt';
