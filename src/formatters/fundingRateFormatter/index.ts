@@ -4,7 +4,7 @@ export type FundingRateFormatterOptions = {
   defaultValue?: string;
   locale: string;
   showPlusSign?: boolean;
-  smallGasFeeLimit: number;
+  smallGasFeeValue: number;
 };
 
 /**
@@ -18,7 +18,7 @@ export type FundingRateFormatterOptions = {
  * @returns {string} The formatted funding rate string.
  */
 export function fundingRateFormatter(value: number, options: FundingRateFormatterOptions): string {
-  const { showPlusSign = false, defaultValue = '---', locale, smallGasFeeLimit } = { ...options };
+  const { showPlusSign = false, defaultValue = '---', locale, smallGasFeeValue } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;
   }
@@ -28,7 +28,7 @@ export function fundingRateFormatter(value: number, options: FundingRateFormatte
 
   const isNegative = value < 0;
   const absValue = Math.abs(value);
-  const extraSmallValue = absValue < smallGasFeeLimit;
+  const extraSmallValue = absValue < smallGasFeeValue;
   if (extraSmallValue) {
     const smallLocale = new Intl.NumberFormat(locale, {
       maximumFractionDigits: 4,
