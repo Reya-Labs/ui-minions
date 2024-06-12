@@ -3,7 +3,7 @@ import { isEmpty } from '~/is-empty';
 export type PercentageFormatterOptions = {
   defaultValue?: string;
   locale: string;
-  smallGasFeeValue: number;
+  smallValueLimit: number;
 };
 
 /**
@@ -16,7 +16,7 @@ export type PercentageFormatterOptions = {
  * @returns {string} The formatted percentage string.
  */
 export function percentageFormatter(value: number, options: PercentageFormatterOptions): string {
-  const { defaultValue = '---', locale, smallGasFeeValue } = { ...options };
+  const { defaultValue = '---', locale, smallValueLimit } = { ...options };
   if (isEmpty(value) || typeof value !== 'number' || isNaN(value)) {
     return defaultValue;
   }
@@ -27,7 +27,7 @@ export function percentageFormatter(value: number, options: PercentageFormatterO
   const isNegative = value < 0;
   const absValue = Math.abs(value);
   const lessThan10 = absValue < 10;
-  const extraSmallValue = absValue < smallGasFeeValue;
+  const extraSmallValue = absValue < smallValueLimit;
   if (extraSmallValue) {
     const smallLocale = new Intl.NumberFormat(locale, {
       maximumFractionDigits: 4,
