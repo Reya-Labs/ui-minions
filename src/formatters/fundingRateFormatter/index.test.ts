@@ -132,7 +132,7 @@ describe('fundingRateFormatter', () => {
       // Call the formatter function
       const retValue = fundingRateFormatter(value as number, {
         locale: mockedNavigatorLanguage,
-        smallGasFeeValue: 0.0001,
+        smallValueLimit: 0.0001,
       });
 
       // Assert the result
