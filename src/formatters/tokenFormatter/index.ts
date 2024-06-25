@@ -14,7 +14,7 @@ export const tokenFormatter = (token: string | undefined) => {
   if (token.toLowerCase() === 'reth') {
     return 'rETH';
   }
-  if (token.toLowerCase() === 'stETH') {
+  if (token.toLowerCase() === 'steth') {
     return 'stETH';
   }
   if (token.toLowerCase() === 'wbtc') {
