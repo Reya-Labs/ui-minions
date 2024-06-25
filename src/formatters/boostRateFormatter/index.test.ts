@@ -1,16 +1,41 @@
 import { boostRateFormatter } from '.';
 
 describe('boostRateFormatter', () => {
-  it('formats whole numbers with one decimal place', () => {
-    expect(boostRateFormatter(10, 'en-US')).toEqual('10');
-  });
+  test.each([
+    // en-GB
+    [undefined, 'en-GB', '---'],
+    [null, 'en-GB', '---'],
+    ['notANumber', 'en-GB', '---'],
+    [NaN, 'en-GB', '---'],
+    [10, 'en-GB', '10'],
+    [10.46, 'en-GB', '10.46'],
+    [10.04, 'en-GB', '10.04'],
+    // 'ja' (Japanese)
+    [undefined, 'ja', '---'],
+    [null, 'ja', '---'],
+    ['notANumber', 'ja', '---'],
+    [NaN, 'ja', '---'],
+    [10, 'ja', '10'],
+    [10.46, 'ja', '10.46'],
+    [10.04, 'ja', '10.04'],
+    // 'ru' (Russian)
+    [undefined, 'ru', '---'],
+    [null, 'ru', '---'],
+    ['notANumber', 'ru', '---'],
+    [NaN, 'ru', '---'],
+    [10, 'ru', '10'],
+    [10.46, 'ru', '10,46'],
+    [10.04, 'ru', '10,04'],
+  ])(
+    'given value=%p, navigator.language=%p - should return expected output',
+    (value, mockedNavigatorLanguage, expected) => {
+      // Call the formatter function
+      const retValue = boostRateFormatter(value as number, {
+        locale: mockedNavigatorLanguage,
+      });
 
-  it('maintains existing decimal places without rounding', () => {
-    expect(boostRateFormatter(9.1, 'en-US')).toEqual('9.1');
-    expect(boostRateFormatter(10.46, 'en-US')).toEqual('10.46');
-  });
-
-  it('displays small decimals without rounding', () => {
-    expect(boostRateFormatter(10.04, 'en-US')).toEqual('10.04');
-  });
+      // Assert the result
+      expect(retValue).toEqual(expected);
+    },
+  );
 });
