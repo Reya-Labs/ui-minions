@@ -4,7 +4,7 @@
  * @param {string | undefined} token - The token string to be formatted.
  * @returns {string} The formatted token string.
  */
-export const tokenFormatter = (token: string | undefined) => {
+export const tokenFormatter = (token: string | undefined): string => {
   if (!token) {
     return '';
   }
