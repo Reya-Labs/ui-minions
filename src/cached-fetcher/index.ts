@@ -9,23 +9,16 @@ const getCachedPromise = <Result>(key: string): Promise<Result> | undefined => {
 const setCachedPromise = <Result>(
   key: string,
   promise: Promise<Result>,
-  duration?: number,
+  // Cannot be 0, we need to delete the cached promise on next event loop
+  duration: number = 1,
 ): void => {
   const cacheKey = key;
 
-  const timeoutId = duration
-    ? window.setTimeout(() => {
-        cache.delete(cacheKey);
-      }, duration)
-    : undefined;
+  const timeoutId = window.setTimeout(() => {
+    cache.delete(cacheKey);
+  }, duration);
 
   cache.set(cacheKey, { promise, timeoutId });
-
-  void promise.finally(() => {
-    if (!duration) {
-      cache.delete(cacheKey);
-    }
-  });
 };
 
 type KeyGenerator<Params> = (params: Params) => string;
@@ -48,9 +41,7 @@ export const cachedFetcher = <Params, Result>({
       return await cachedPromise;
     }
 
-    const promise = (async () => {
-      return fetcher(params);
-    })();
+    const promise = fetcher(params);
 
     setCachedPromise(cacheKey, promise, cacheDuration);
 
