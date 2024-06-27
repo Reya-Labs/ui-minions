@@ -24,4 +24,4 @@ A package providing useful various utilities for Reya Labs projects including fo
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-96.65%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-91.01%25-brightgreen.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-96%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-96.8%25-brightgreen.svg?style=flat) |
+| ![Statements](https://img.shields.io/badge/statements-90.03%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-86.17%25-yellow.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-84.21%25-yellow.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-89.8%25-yellow.svg?style=flat) |
