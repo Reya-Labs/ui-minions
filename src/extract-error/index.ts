@@ -26,6 +26,9 @@ export const extractError = (err: unknown): string => {
     ) {
       return 'Action rejected by User';
     }
+    if (message === 'SignatureExpired') {
+      return 'Signature expired! Please adjust the time in your device.';
+    }
     return message;
   }
   return '';
