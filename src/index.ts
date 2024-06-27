@@ -1,4 +1,5 @@
 export * from './array';
+export * from './cached-fetcher';
 export * from './date';
 export * from './extract-error';
 export * from './formatters';
